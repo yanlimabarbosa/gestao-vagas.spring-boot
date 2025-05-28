@@ -1,6 +1,6 @@
 package com.yan.gestao_vagas.modules.candidate.controllers;
 
-import com.yan.gestao_vagas.modules.candidate.CandidateEntity;
+import com.yan.gestao_vagas.modules.candidate.entities.CandidateEntity;
 import com.yan.gestao_vagas.modules.candidate.useCases.CreateCandidateUseCase;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class CandidateController {
         try {
             var result = this.createCandidateUseCase.execute(candidateEntity);
             return ResponseEntity.ok().body(result);
-        } catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }

@@ -1,4 +1,4 @@
-package com.yan.gestao_vagas.modules.candidate;
+package com.yan.gestao_vagas.modules.candidate.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
