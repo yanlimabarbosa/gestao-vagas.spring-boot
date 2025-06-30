@@ -14,9 +14,13 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 @Configuration
 @EnableMethodSecurity
 public class SecurityConfig {
+    private static final String[] SWAGGER_LIST = {
+            "/swagger-ui/**",
+            "/v3/api-docs/**",
+            "/swagger-resources/**"
+    };
     @Autowired
     private SecurityFilter securityFilter;
-
     @Autowired
     private SecurityCandidateFilter securityCandidateFilter;
 
@@ -27,7 +31,8 @@ public class SecurityConfig {
                     auth.requestMatchers("/candidate/").permitAll()
                             .requestMatchers("/company/").permitAll()
                             .requestMatchers("/company/auth").permitAll()
-                            .requestMatchers("/candidate/auth").permitAll();
+                            .requestMatchers("/candidate/auth").permitAll()
+                            .requestMatchers(SWAGGER_LIST).permitAll();
 
                     auth.anyRequest().authenticated();
                 })
